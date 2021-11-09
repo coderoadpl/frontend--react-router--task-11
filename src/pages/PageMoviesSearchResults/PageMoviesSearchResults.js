@@ -4,6 +4,8 @@ import PropTypes from 'prop-types'
 import { useParams } from 'react-router-dom'
 import { useAsyncFn } from 'react-use'
 
+import NavLink from '../../components/NavLink'
+
 import { getMovies as getMoviesAPIRequest } from '../../api/getMovies'
 
 import classes from './styles.module.css'
@@ -46,11 +48,12 @@ export const PageMoviesSearchResults = (props) => {
                     {
                       getMoviesState.value.map((movie) => {
                         return (
-                          <li
+                          <NavLink
                             key={movie.imdbID}
+                            to={'/movies/' + movie.imdbID}
                           >
                             {movie.Year} | {movie.Title}
-                          </li>
+                          </NavLink>
                         )
                       })
                     }
