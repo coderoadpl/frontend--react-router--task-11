@@ -11,6 +11,7 @@ import PageLogin from './pages/PageLogin'
 import PageHome from './pages/PageHome'
 import PageMoviesSearch from './pages/PageMoviesSearch'
 import PageMoviesSearchResults from './pages/PageMoviesSearchResults'
+import PageMoviesResult from './pages/PageMoviesResult'
 
 import { useUser } from './contexts/UserContext'
 
@@ -71,6 +72,10 @@ export const App = () => {
                   element={<PageMoviesSearchResults />}
                 />
               </Route>
+              <Route
+                path={'/movies/:imdbID'}
+                element={<PageMoviesResult />}
+              />
               <Route
                 path={'/logout'}
                 element={<PageLogout />}
