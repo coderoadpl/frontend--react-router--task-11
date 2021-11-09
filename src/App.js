@@ -56,26 +56,30 @@ export const App = () => {
                 element={<PageHome />}
               />
               <Route
-                path={'/movies/search'}
-                element={<PageMoviesSearch />}
+                path={'/movies'}
               >
                 <Route
-                  index={true}
-                  element={
-                    <p>
-                      Start typing to search our movies database!
-                    </p>
-                  }
+                  path={':imdbID'}
+                  element={<PageMoviesResult />}
                 />
                 <Route
-                  path={':searchPhrase'}
-                  element={<PageMoviesSearchResults />}
-                />
+                  path={'search'}
+                  element={<PageMoviesSearch />}
+                >
+                  <Route
+                    index={true}
+                    element={
+                      <p>
+                        Start typing to search our movies database!
+                      </p>
+                    }
+                  />
+                  <Route
+                    path={':searchPhrase'}
+                    element={<PageMoviesSearchResults />}
+                  />
+                </Route>
               </Route>
-              <Route
-                path={'/movies/:imdbID'}
-                element={<PageMoviesResult />}
-              />
               <Route
                 path={'/logout'}
                 element={<PageLogout />}
